@@ -1,9 +1,11 @@
-const AppLayout = ({ children }) => {
+import React from "react";
+import Sidebar from "../components/Sidebar";
+import Map from "../components/Map";
+const AppLayout = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen w-screen">
-      <div className="min-h-screen w-screen sm:min-h-full sm:h-[calc(100vh-2rem)] sm:w-[calc(100vw-2rem)] overflow-hidden bg-slate-600">
-        {children}
-      </div>
+    <div className="h-screen overscroll-y-none flex relative">
+      <Sidebar />
+      <Map />
     </div>
   );
 };

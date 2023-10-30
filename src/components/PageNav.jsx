@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import Logo from "./Logo";
 const PageNav = () => {
   const [close, setClose] = useState(false);
 
@@ -10,34 +11,32 @@ const PageNav = () => {
       <div className="flex-1">
         <div className="sm:mx-16 mx-2 flex items-center justify-between">
           {/* Logo  */}
-          <div className="flex items-center">
-            <img src="icon.png" alt="logo" className="h-12" />
-            <Link to="/" className="text-white font-medium text-2xl ml-2">
-              WorldWise
-            </Link>
-          </div>
+          <Logo />
 
           {/* Menu Button for desktop view */}
           <ul className="hidden sm:gap-8 sm:flex">
             <li>
               <NavLink
-                className="text-white uppercase font-semibold hover:text-blue-400 active:text-blue-400"
-                to="product"
+                className="text-white uppercase font-semibold hover:text-blue-400"
+                to="/product"
               >
                 Product
               </NavLink>
             </li>
             <li>
               <NavLink
-                className="text-white uppercase font-semibold hover:text-blue-400 active:text-blue-400"
-                to="pricing"
+                className="text-white uppercase font-semibold hover:text-blue-400"
+                to="/pricing"
               >
                 Pricing
               </NavLink>
             </li>
             <li>
-              <NavLink className="bg-green-600 px-2 py-1 m-5 uppercase rounded-md hover:bg-green-700 font-bold">
-                Login
+              <NavLink
+                className="bg-green-600 px-2 py-1 m-5 uppercase rounded-md hover:bg-green-700 font-bold button"
+                to="/login"
+              >
+                <button>Login</button>
               </NavLink>
             </li>
           </ul>
@@ -53,7 +52,7 @@ const PageNav = () => {
                   <li>
                     <NavLink
                       className="text-white uppercase font-semibold hover:text-blue-400 active:text-blue-400"
-                      to="product"
+                      to="/product"
                     >
                       Product
                     </NavLink>
@@ -61,13 +60,16 @@ const PageNav = () => {
                   <li>
                     <NavLink
                       className="text-white uppercase font-semibold hover:text-blue-400 active:text-blue-400"
-                      to="pricing"
+                      to="/pricing"
                     >
                       Pricing
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink className="bg-green-600 px-2 py-1 m-5 uppercase rounded-md hover:bg-green-700 font-bold">
+                    <NavLink
+                      className="bg-green-600 px-2 py-1 m-5 uppercase rounded-md hover:bg-green-700 font-bold"
+                      to="/login"
+                    >
                       Login
                     </NavLink>
                   </li>

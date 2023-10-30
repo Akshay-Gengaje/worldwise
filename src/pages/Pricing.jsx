@@ -3,17 +3,16 @@ import PageNav from "../components/PageNav";
 
 const Pricing = () => {
   return (
-    <div className="bg-[#2d3439] w-full h-full">
+    <div className=" w-full h-full">
       <PageNav />
       <div className="w-full h-full flex items-center justify-center">
         <div className="flex flex-col items-center justify-center sm:flex-row  sm:justify-around mt-32 sm:mt-0">
-          {/* image  */}
-
-          <img src="img-1.jpg" alt="img" className="w-80 " />
-
           {/* content */}
-          <div className="text-white w-80 mx-24 mb-10 mt-2 sm:mt-0">
-            <h1 className="font-bold text-4xl mb-5">About WorldWise</h1>
+          <div className="text-white w-full px-6 sm:w-[50%] mb-5 mt-2 sm:mt-0">
+            <h1 className="font-bold text-4xl mb-5">
+              Simple Pricing. <br />
+              Just $9/month.
+            </h1>
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
               accusamus numquam optio a praesentium quo laborum voluptatem sit
@@ -25,6 +24,9 @@ const Pricing = () => {
               porro quibusdam!
             </p>
           </div>
+
+          {/* image  */}
+          <img src="img-2.jpg" alt="img" className="w-96 mb-10" />
         </div>
       </div>
     </div>

@@ -6,6 +6,10 @@ export default {
       backgroundImage: {
         "home-bg": "url('/bg.jpg')",
       },
+      colors: {
+        "dark-1": "#2d3439",
+        "dark-2": "#42484d",
+      },
     },
   },
   plugins: [],
