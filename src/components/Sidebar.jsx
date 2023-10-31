@@ -6,14 +6,14 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { Outlet } from "react-router-dom";
 const Sidebar = () => {
-  const [close, setClose] = useState(true);
-
+  const [close, setClose] = useState(false);
+  console.log(screen.width);
   return (
     <div
       className={`${
         close
           ? "w-14"
-          : "flex flex-col items-center pt-12 px-20 pb-14 text-gray-400 w-full sm:w-fit"
+          : "flex flex-col items-center pt-12 px-10 pb-14 text-gray-400 "
       } relative`}
     >
       {!close ? (

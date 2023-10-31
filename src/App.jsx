@@ -8,9 +8,10 @@ import PageLayout from "./layout/PageLayout";
 import Login from "./pages/Login";
 import AppLayout from "./layout/AppLayout";
 import CityList from "./components/CityList";
+import CountryList from "./components/CountryList";
 
 const App = () => {
-  const [cities, setCities] = useState({});
+  const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const BASE_URL = "http://localhost:8000";
   useEffect(() => {
@@ -22,9 +23,8 @@ const App = () => {
         setCities(data);
       } catch {
         console.log("Something went wrong....");
-      }
-      finally{
-        setIsLoading(false)
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchcities();
@@ -46,7 +46,10 @@ const App = () => {
               path="cities"
               element={<CityList cities={cities} isLoading={isLoading} />}
             />
-            <Route path="countries" element={<p>Countries</p>} />
+            <Route
+              path="countries"
+              element={<CountryList cities={cities} isLoading={isLoading} />}
+            />
             <Route path="list" element={<p>List</p>} />
           </Route>
           <Route path="*" element={<NotFound />} />
