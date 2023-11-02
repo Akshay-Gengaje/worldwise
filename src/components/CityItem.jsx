@@ -10,12 +10,12 @@ const formatDate = (date) => {
 };
 
 const CityItem = ({ city }) => {
-  const { cityName, emoji, date, id } = city;
+  const { cityName, emoji, date, id, position } = city;
   return (
     <li>
       <Link
         className="flex justify-between w-72 bg-dark-2 mb-2 p-1 rounded-lg "
-        to={`${id}`}
+        to={`${id}?lat=${position.lat}&lng=${position.lng}`}
       >
         <div>
           <span className="h-full  w-2 bg-green-500 mr-2"> &nbsp;</span>
