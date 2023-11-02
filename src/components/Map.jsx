@@ -2,7 +2,7 @@ import React from "react";
 
 const Map = () => {
   return (
-    <div className="h-full w-full  bg-dark-2 relative ">Map</div>
+    <div className="h-full w-full text-white bg-dark-2 relative ">Map</div>
   );
 };
 

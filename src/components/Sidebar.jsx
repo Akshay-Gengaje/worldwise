@@ -12,7 +12,7 @@ const Sidebar = () => {
     <div
       className={`${
         close
-          ? "w-14"
+          ? "w-14 "
           : "flex flex-col items-center pt-12 px-10 pb-14 text-gray-400 "
       } relative`}
     >
@@ -26,7 +26,9 @@ const Sidebar = () => {
           />
           <Logo />
           <AppNav />
-          <Outlet />
+          <div className="w-72">
+            <Outlet />
+          </div>
           <Footer />
         </>
       ) : (
