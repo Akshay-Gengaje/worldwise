@@ -1,6 +1,8 @@
+@import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 
 button Link>.active {
@@ -12,5 +14,5 @@ button Link>.active {
 }
 
 .link>.active {
-    @apply font-bold bg-dark-1 rounded-lg ;
+    @apply font-bold bg-dark-1 rounded-lg;
 }

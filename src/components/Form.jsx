@@ -1,9 +1,10 @@
 import React from "react";
 import Button from "./Button";
-import { useNavigate } from "react-router-dom";
+
+import BackButton from "./BackButton";
 
 const Form = () => {
-  const navigate = useNavigate();
+
   return (
     <div>
       <form action="/" className="flex flex-col gap-1">
@@ -35,14 +36,7 @@ const Form = () => {
         />
         <div className="flex justify-between mt-2">
           <Button type="primary">Add</Button>
-          <Button
-            onClick={(e) => {
-              e.preventDefault();
-              navigate(-1);
-            }}
-          >
-            &larr; Back
-          </Button>
+          <BackButton />
         </div>
       </form>
     </div>

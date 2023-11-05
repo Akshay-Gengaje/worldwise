@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCities } from "../context/CitiesContext";
 
 const formatDate = (date) => {
   return new Intl.DateTimeFormat("en", {
@@ -10,16 +11,19 @@ const formatDate = (date) => {
 };
 
 const CityItem = ({ city }) => {
+  const { currentCity } = useCities();
   const { cityName, emoji, date, id, position } = city;
   return (
-    <li>
+    <li className="text-white">
       <Link
-        className="flex justify-between w-72 bg-dark-2 mb-2 p-1 rounded-lg "
+        className={`${
+          id === currentCity.id && "border-2 border-green-600"
+        } flex justify-between w-72 bg-dark-2 mb-2 px-1 py-2 rounded-lg`}
         to={`${id}?lat=${position.lat}&lng=${position.lng}`}
       >
         <div>
           <span className="h-full  w-2 bg-green-500 mr-2"> &nbsp;</span>
-          <span>{emoji}</span>
+          <span>{emoji} &nbsp;</span>
           <span>{cityName}</span>
         </div>
         <div className="flex items-center">
