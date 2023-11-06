@@ -4,7 +4,6 @@ import Button from "./Button";
 import BackButton from "./BackButton";
 
 const Form = () => {
-
   return (
     <div>
       <form action="/" className="flex flex-col gap-1">
