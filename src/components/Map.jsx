@@ -28,18 +28,20 @@ const Map = () => {
   }, [mapLat, mapLng]);
 
   useEffect(() => {
-    if(geoLocationPosition){
-      setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng])
+    if (geoLocationPosition) {
+      setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
     }
   }, [geoLocationPosition]);
   return (
     <div className="flex-1 overflow-hidden relative">
-      <button
-        className="absolute z-20 bottom-20 right-[50%] bg-green-600 px-2 py-2 rounded-xl uppercase font-bold"
-        onClick={getPosition}
-      >
-        {isLoadingPosition ? "Loading" : "Use Your Position"}
-      </button>
+      <div className="w-full flex justify-center">
+        <button
+          className="absolute z-20 bottom-20   bg-green-600 px-2 py-2 rounded-xl uppercase font-bold"
+          onClick={getPosition}
+        >
+          {isLoadingPosition ? "Loading" : "Use Your Position"}
+        </button>
+      </div>
       <MapContainer
         center={mapPosition}
         zoom={3}
