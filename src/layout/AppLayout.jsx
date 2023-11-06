@@ -1,11 +1,14 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import Map from "../components/Map";
+import SidebarProvider from "../context/SidebarContext";
 const AppLayout = () => {
   return (
     <div className="h-screen overscroll-y-none flex relative">
-      <Sidebar />
-      <Map />
+      <SidebarProvider>
+        <Sidebar />
+        <Map />
+      </SidebarProvider>
     </div>
   );
 };

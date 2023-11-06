@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { useSidebar } from "../context/SidebarContext";
+import { useCities } from "../context/CitiesContext";
 
 const Map = () => {
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
-  const position = [51.505, -0.09];
+  const { close, setClose } = useSidebar();
+  const { cities } = useCities();
+  const [mapPosition, setMapPosition] = useState([40, 0]);
+  const [searchParams] = useSearchParams();
+  const mapLat = searchParams.get("lat");
+  const mapLng = searchParams.get("lng");
+
+  useEffect(() => {
+    if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
+  }, [mapLat, mapLng]);
   return (
-    <div className="flex-1 min-h-full min-w-full overflow-hidden">
+    <div className="flex-1 overflow-hidden">
       <MapContainer
-        center={position}
-        zoom={13}
+        center={mapPosition}
+        zoom={3}
         scrollWheelZoom={true}
         style={{ width: "100%", height: "100%" }}
       >
@@ -20,14 +28,24 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
+        {cities?.map((city) => (
+          <Marker position={mapPosition} key={city.id}>
+            <Popup>
+              <span>{city.emoji} &nbsp;</span>
+              <span>{city.cityName}</span>
+            </Popup>
+          </Marker>
+        ))}
+        <ChangeCenter position={[mapLat || 40, mapLng || 0]} />
       </MapContainer>
     </div>
   );
 };
 
 export default Map;
+
+function ChangeCenter({ position }) {
+  const map = useMap();
+  map.setView(position);
+  return null;
+}
