@@ -13,7 +13,7 @@ const CityList = () => {
     );
   return (
     <ul className="">
-      {cities.map((city, index) => (
+      {cities.map((city) => (
         <CityItem city={city} key={city.id} />
       ))}
     </ul>

@@ -6,6 +6,7 @@ import { useUrlPosition } from "../hooks/useUrlPosition";
 import Spinner from "./Spinner";
 import Message from "./Message";
 import { useCities } from "../context/CitiesContext";
+import { useNavigate } from "react-router-dom";
 
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
@@ -18,7 +19,8 @@ export function convertToEmoji(countryCode) {
 }
 
 const Form = () => {
-  const { createCity } = useCities();
+  const navigate = useNavigate();
+  const { createCity, isLoading } = useCities();
   const [lat, lng] = useUrlPosition();
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
@@ -29,6 +31,7 @@ const Form = () => {
   const [geocodingError, setGeocodingError] = useState("");
   useEffect(() => {
     if (!lat && !lng) return;
+
     async function fetchCityData() {
       try {
         setIsLoadingGeocoding(true);
@@ -52,7 +55,7 @@ const Form = () => {
     fetchCityData();
   }, [lat, lng]);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!date && !cityName) return;
     const newCity = {
@@ -66,7 +69,8 @@ const Form = () => {
         lng,
       },
     };
-    createCity(newCity);
+    await createCity(newCity);
+    navigate("/app/cities");
   }
 
   if (isLoadingGeocoding) return <Spinner />;
@@ -78,7 +82,11 @@ const Form = () => {
 
   return (
     <div>
-      <form action="/" className="flex flex-col gap-1" onSubmit={handleSubmit}>
+      <form
+        action="/"
+        className={`${isLoading ? "opacity-20 " : ""} flex flex-col gap-1`}
+        onSubmit={handleSubmit}
+      >
         <label htmlFor="city" className="w-full">
           City Name
         </label>
