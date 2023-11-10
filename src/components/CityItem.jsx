@@ -11,8 +11,12 @@ const formatDate = (date) => {
 };
 
 const CityItem = ({ city }) => {
-  const { currentCity } = useCities();
+  const { currentCity, deleteCity } = useCities();
   const { cityName, emoji, date, id, position } = city;
+  const handleClick = (e) => {
+    e.preventDefault();
+    deleteCity(id);
+  };
   return (
     <li className="text-white">
       <Link
@@ -28,7 +32,10 @@ const CityItem = ({ city }) => {
         </div>
         <div className="flex items-center">
           <time>({formatDate(date)})</time>
-          <button className="w-5 h-5 bg-black text-white rounded-full flex items-center justify-center ml-2 pb-[0.20rem] hover:bg-white hover:text-black">
+          <button
+            className="w-5 h-5 bg-black text-white rounded-full flex items-center justify-center ml-2 pb-[0.20rem] hover:bg-white hover:text-black"
+            onClick={handleClick}
+          >
             &times;
           </button>
         </div>

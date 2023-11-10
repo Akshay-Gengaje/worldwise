@@ -13,18 +13,6 @@
       "id": 73930385
     },
     {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 17806751
-    },
-    {
       "cityName": "Berlin",
       "country": "Germany",
       "emoji": "🇩🇪",
@@ -37,28 +25,16 @@
       "id": 98443197
     },
     {
-      "cityName": "Yar-Sale",
-      "country": "Russian Federation (the)",
-      "emoji": "🇷🇺",
-      "date": "2023-11-01",
-      "notes": "What a place; I would like to visit it again.",
-      "position": {
-        "lat": "72.07854315447757",
-        "lng": "70.13220860506233"
-      },
-      "id": 98443200
-    },
-    {
-      "cityName": "Badajoz",
+      "cityName": "Nijar",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2023-11-01",
-      "notes": "Beautiful place",
+      "date": "2023-04-03T07:47:59.202Z",
+      "notes": "",
       "position": {
-        "lat": "38.83660006316253",
-        "lng": "-7.020265806863267"
+        "lat": "36.967508314568164",
+        "lng": "-2.13128394200588"
       },
-      "id": 98443201
+      "id": 98443198
     }
   ]
 }

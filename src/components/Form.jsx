@@ -29,6 +29,11 @@ const Form = () => {
   const [emoji, setEmoji] = useState("");
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [geocodingError, setGeocodingError] = useState("");
+
+  // Get tomorrow's date
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate());
+  const tomorrowFormatted = tomorrow.toISOString().split("T")[0];
   useEffect(() => {
     if (!lat && !lng) return;
 
@@ -114,6 +119,8 @@ const Form = () => {
           id="date"
           className="p-1 rounded-lg text-black bg-slate-300"
           onChange={(e) => setDate(e.target.value)}
+          max={tomorrowFormatted}
+          required
         />
         <label htmlFor="notes">Notes about your trip to</label>
         <textarea
@@ -124,7 +131,6 @@ const Form = () => {
           className="w-full rounded-lg p-1 text-black bg-slate-300"
           onChange={(e) => {
             setNotes(e.target.value);
-            console.log(e.target.value);
           }}
         />
         <div className="flex justify-between mt-2">
