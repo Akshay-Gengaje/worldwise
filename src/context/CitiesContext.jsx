@@ -67,7 +67,6 @@ const CitiesProvider = ({ children }) => {
   useEffect(function () {
     async function fetchCities() {
       dispatch({ type: LOADING });
-
       try {
         const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
