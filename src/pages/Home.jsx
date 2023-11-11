@@ -16,7 +16,7 @@ const Home = () => {
           you have wandered the world.
         </h2>
         <Link
-          to="/app"
+          to="/login"
           className="bg-green-600 px-2 py-1 m-5 uppercase rounded-md hover:bg-green-700"
         >
           Start Tracking Now

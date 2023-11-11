@@ -34,11 +34,11 @@ const Sidebar = () => {
       className={`${
         isMobileView && close
           ? "w-11"
-          : "flex flex-col items-center pt-12 px-10 pb-14 text-gray-400"
-      } relative`}
+          : "flex flex-col items-center pt-12 px-10 pb-14 text-gray-400 "
+      } relative z-10 `}
     >
       {isMobileView && (
-        <div className="text-white my-3">
+        <div className="text-white my-3 ">
           {close ? (
             <HiOutlineMenuAlt3
               className="text-3xl m-2"
