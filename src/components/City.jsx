@@ -10,8 +10,8 @@ const City = () => {
   const formatedDate = moment(currentCity.date).format("ddd, MMM DD, YYYY");
   useEffect(() => {
     getCity(id);
-  }, [id]);
-  
+  }, [id, getCity]);
+
   return (
     <>
       {isLoading ? (
