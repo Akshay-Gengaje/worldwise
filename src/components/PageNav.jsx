@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import Logo from "./Logo";
+
 const PageNav = () => {
   const [close, setClose] = useState(false);
 
